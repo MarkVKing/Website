@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import MarksPicture from '../images/Mark2.jpg'
-import Posts from './Posts' 
+import Posts from './Posts'
 
 class Main extends Component {
   render() {
@@ -194,15 +194,10 @@ class Main extends Component {
         >
           <div>
             <h2 className="major">Contact</h2>
-            <form name="contact" method="POST" data-netlify="true">
+            <form>
               <div className="field half first">
                 <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                />
+                <input type="text" name="name" id="name" placeholder="Name" />
               </div>
               <div className="field half">
                 <label htmlFor="email">Email</label>
@@ -228,6 +223,25 @@ class Main extends Component {
                     type="submit"
                     value="Send Message"
                     className="special"
+                    onClick={event => {
+                      //Note to self, clean this up later... Was a bit of a bitch to get this working.
+                      event.preventDefault()
+                      console.log('Running form script')
+                      const scriptURL = 'https://script.google.com/macros/s/AKfycbwcUuB8Amjom_ZqOODnRHKaK-NEv07_IZdSfkZx0VLO3UKn7MpF/exec'
+                      const form = new FormData()
+                      const inputs = document.querySelector('form').querySelectorAll('input')
+                      const text = document.querySelector('form').querySelector('textarea').value
+                      form.append('name', inputs[0].value)
+                      form.append('email', inputs[1].value)
+                      form.append('message', text)
+                      console.log(form.entries())
+                      fetch(scriptURL, {
+                        method: 'POST',
+                        body: form,
+                      })
+                        .then(response => console.log('Success!', response))
+                        .catch(error => console.error('Error!', error.message))
+                    }}
                   />
                 </li>
                 <li>
