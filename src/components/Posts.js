@@ -18,6 +18,7 @@ const Posts = () => (
             excerpt
             title
             link
+            wordpress_id
           }
         }
       }
@@ -59,7 +60,6 @@ const Posts = () => (
                   key={post.wordpress_id}
                   id={post.wordpress_id}
                   className="post"
-                  style={{}}
                   onClick={() => {
                     disqusReset(
                       post.link,
