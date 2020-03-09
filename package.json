@@ -9,14 +9,17 @@
     "gatsby-plugin-manifest": "^2.2.38",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
+    "gatsby-plugin-twitter": "^2.1.19",
     "gatsby-source-wordpress": "^3.1.62",
     "html-react-parser": "^0.10.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-facebook": "^8.1.4",
     "react-helmet": "^5.2.1",
     "react-slick": "^0.25.2",
     "sanitize-html": "^1.22.0",
+    "slick-carousel": "^1.8.1"
   },
   "keywords": [
     "gatsby"
