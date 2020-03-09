@@ -37,9 +37,15 @@ class Main extends Component {
               <p>Just the one.</p>
               <h3>How many fully-able people does it take?</h3>
               <p>Also just the one. But you have to want to do it. </p>
+              <iframe
+                id="MarkVideo"
+                src="https://www.youtube-nocookie.com/embed/pqOKGOtbDtE"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </blockquote>
           </span>
-
           <p>
             Here’s the thing about being a C-1 quadriplegic. It’s not the whole
             I-can’t-use-my-body-and-I-need-
@@ -103,9 +109,6 @@ class Main extends Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Resources</h2>
-          {/* <span className="image main">
-            <img src={pic02} alt="" />
-          </span> */}
           <h3>Resources for disabled people</h3>
           <ul>
             <li>
@@ -129,7 +132,7 @@ class Main extends Component {
               </a>
             </li>
             <li>
-              <a href="https://droregon.org/"></a>Disability Rights of Oregon
+              <a href="https://droregon.org/">Disability Rights of Oregon</a>
             </li>
             <li>
               <a href="https://www.leadingageoregon.org/">LeadingAge Oregon </a>
@@ -224,23 +227,36 @@ class Main extends Component {
                     value="Send Message"
                     className="special"
                     onClick={event => {
-                      //Note to self, clean this up later... Was a bit of a bitch to get this working.
                       event.preventDefault()
-                      console.log('Running form script')
-                      const scriptURL = 'https://script.google.com/macros/s/AKfycbwcUuB8Amjom_ZqOODnRHKaK-NEv07_IZdSfkZx0VLO3UKn7MpF/exec'
-                      const form = new FormData()
-                      const inputs = document.querySelector('form').querySelectorAll('input')
-                      const text = document.querySelector('form').querySelector('textarea').value
-                      form.append('name', inputs[0].value)
-                      form.append('email', inputs[1].value)
-                      form.append('message', text)
-                      console.log(form.entries())
+                      const scriptURL =
+                        'https://script.google.com/macros/s/AKfycbwcUuB8Amjom_ZqOODnRHKaK-NEv07_IZdSfkZx0VLO3UKn7MpF/exec' //Link for the web app of the google sheet web app that's controlling the google sheet and emails.
+                      let form = document.querySelector('form')
+                      form.style.opacity = '0.2'
+                      let POST = new FormData() //Doing it this stupid way because FormData don't like how the form here is put together. Slay this dragon on a different day.
+                      let inputs = form.querySelectorAll('input')
+                      let text = form.querySelector('textarea').value
+                      POST.append('name', inputs[0].value)
+                      POST.append('email', inputs[1].value)
+                      POST.append('message', text)
                       fetch(scriptURL, {
                         method: 'POST',
-                        body: form,
+                        body: POST,
                       })
-                        .then(response => console.log('Success!', response))
-                        .catch(error => console.error('Error!', error.message))
+                        .then(response => {
+                          form.style.opacity = '1'
+                          form.innerHTML =
+                            '<h1>Successfully sent your message!</h1>'
+                        })
+                        .catch(error => {
+                          form.style.opacity = '1'
+                          let node = document.createElement('h1')
+                          let text = document.createTextNode(
+                            'Something went wrong! Try again?'
+                          )
+                          node.appendChild(text)
+                          node.style.color = 'red'
+                          form.prepend(node)
+                        })
                     }}
                   />
                 </li>

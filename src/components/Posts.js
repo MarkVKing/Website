@@ -33,7 +33,7 @@ const Posts = () => (
       }
 
       function disqusReset(newIdentifier, newUrl, newTitle, newLanguage) {
-        //The leftovers of many attempts to get Disqus working... No luck. Disqus still refuse to put comments in their own threads based on the identifier. 
+        //The leftovers of many attempts to get Disqus working... No luck. Disqus still refuse to put comments in their own threads based on the identifier.
         //UPDATE: I have no idea why this bit was not working until after I reset my computer... Each posts now gets their own comment sections!
         //HERE BE DRAGONS - Don't change anything in this function! Just believe in the magic!
         disqusConfig.shortname = disqusShortname
@@ -44,9 +44,9 @@ const Posts = () => (
         console.log(window.DISQUS.reset)
         window.DISQUS.reset({
           reload: true,
-          config: function(){
+          config: function() {
             this.page.identifier = disqusConfig.identifier
-            this.page.url = disqusConfig.url  
+            this.page.url = disqusConfig.url
           },
         })
       }
@@ -61,15 +61,26 @@ const Posts = () => (
                   id={post.wordpress_id}
                   className="post"
                   onClick={() => {
-                    disqusReset(
-                      post.link,
-                      post.link,
-                      post.title,
-                      `en`
-                    )
-                    document.getElementById('content').innerHTML = `<h1>` + post.title + '</h1>' + Sanitize(post.content,{
-                      allowedTags: Sanitize.defaults.allowedTags.concat([ 'img'])
-                    })
+                    disqusReset(post.link, post.link, post.title, `en`)
+                    document.getElementById('content').innerHTML =
+                      `<h1>` +
+                      post.title +
+                      '</h1>' +
+                      Sanitize(post.content, {
+                        allowedTags: Sanitize.defaults.allowedTags.concat([
+                          'iframe',
+                          'video',
+                          'img',
+                          'div',
+                        ]),
+                        allowedAttributes: {
+                          a: ['href', 'name', 'target'],
+                          // We don't currently allow img itself by default, but this
+                          // would make sense if we did
+                          img: ['src'],
+                          iframe: ['src'],
+                        },
+                      })
                   }}
                 >
                   <h4>{Parser(post.title)}</h4>
@@ -79,8 +90,26 @@ const Posts = () => (
             </div>
             <div id="mainPost">
               <div id="content">
-                <h1>{Parser(data.allWordpressPost.nodes[0].title)}</h1>
-                {Parser(data.allWordpressPost.nodes[0].content)}
+                {Parser(
+                  `<h1>` +
+                  data.allWordpressPost.nodes[0].title +
+                    '</h1>' +
+                    Sanitize(data.allWordpressPost.nodes[0].content, {
+                      allowedTags: Sanitize.defaults.allowedTags.concat([
+                        'iframe',
+                        'video',
+                        'img',
+                        'div',
+                      ]),
+                      allowedAttributes: {
+                        a: ['href', 'name', 'target'],
+                        // We don't currently allow img itself by default, but this
+                        // would make sense if we did
+                        img: ['src'],
+                        iframe: ['src'],
+                      },
+                    })
+                )}
               </div>
               <div id="disqus_thread">
                 {/* <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
