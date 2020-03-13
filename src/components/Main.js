@@ -112,6 +112,9 @@ class Main extends Component {
           <h3>Resources for disabled people</h3>
           <ul>
             <li>
+              <a href="https://www.oregon.gov/dhs/seniors-disabilities/hcc/Pages/index.aspx">Oregon Home Care Commission</a>
+            </li>
+            <li>
               <a href="https://www.oregon.gov/dhs/spd/Pages/ODCindex.aspx">
                 Oregon Disabilities Commission
               </a>
