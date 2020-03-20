@@ -75,8 +75,6 @@ const Posts = () => (
                         ]),
                         allowedAttributes: {
                           a: ['href', 'name', 'target'],
-                          // We don't currently allow img itself by default, but this
-                          // would make sense if we did
                           img: ['src'],
                           iframe: ['src'],
                         },
@@ -103,8 +101,6 @@ const Posts = () => (
                       ]),
                       allowedAttributes: {
                         a: ['href', 'name', 'target'],
-                        // We don't currently allow img itself by default, but this
-                        // would make sense if we did
                         img: ['src'],
                         iframe: ['src'],
                       },
@@ -114,7 +110,6 @@ const Posts = () => (
               <div id="disqus_thread">
                 {/* <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
                         </Disqus.CommentCount> */}
-                <p>BLOGS GOES HERE - PEE IN PROGRESS - BLOGS GOES HERE</p>
                 <Disqus.DiscussionEmbed
                   shortname={disqusShortname}
                   config={disqusConfig}
