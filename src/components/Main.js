@@ -112,15 +112,17 @@ class Main extends Component {
           <h3>Resources for disabled people</h3>
           <ul>
             <li>
-              <a href="https://www.oregon.gov/dhs/seniors-disabilities/hcc/Pages/index.aspx">Oregon Home Care Commission</a>
+              <a href="https://www.oregon.gov/dhs/seniors-disabilities/hcc/Pages/index.aspx">
+                Oregon Home Care Commission
+              </a>
             </li>
             <li>
-              <a href="https://www.oregon.gov/dhs/spd/Pages/ODCindex.aspx">
+              <a href="https://www.oregon.gov/dhs/seniors-disabilities/advisory/odc/pages/index.aspx">
                 Oregon Disabilities Commission
               </a>
             </li>
             <li>
-              <a href="https://www.oregon.gov/dhs/spd/Pages/GCSSindex.aspx">
+              <a href="https://www.oregon.gov/dhs/seniors-disabilities/advisory/odc/pages/index.aspx">
                 Governor’s Commission on Senior Services
               </a>
             </li>
@@ -130,7 +132,9 @@ class Main extends Component {
               </a>
             </li>
             <li>
-              <a href="https://www.o4ad.org/">
+              <a href="http://www.o4ad.org/">
+                {' '}
+                {/* Used to be HTTPS... They don't know about how easy it is to turn on HTTPS nowadays, it seems. */}
                 Oregon Association of Area Agencies on Aging and Disabilities
               </a>
             </li>
@@ -138,7 +142,7 @@ class Main extends Component {
               <a href="https://droregon.org/">Disability Rights of Oregon</a>
             </li>
             <li>
-              <a href="https://www.leadingageoregon.org/">LeadingAge Oregon </a>
+              <a href="https://www.leadingageoregon.org/">LeadingAge Oregon</a>
             </li>
             <li>
               <a href="https://multco.us/ads">
@@ -156,12 +160,12 @@ class Main extends Component {
               </a>
             </li>
             <li>
-              <a href="https://www.ohsu.edu/xd/research/centers-institutes/neurology/parkinson-center/">
+              <a href="https://www.ohsu.edu/brain-institute/parkinsons-disease-and-movement-disorders">
                 Parkinson Center of Oregon
               </a>
             </li>
             <li>
-              <a href="http://parkinsonsresources.org/">
+              <a href="https://www.parkinsonsresources.org/">
                 Parkinson’s Resources of Oregon
               </a>
             </li>
