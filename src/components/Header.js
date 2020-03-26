@@ -24,7 +24,7 @@ const Header = props => (
             disabilities and is one of the longest living ventilator dependent
             c1 quadriplegics in the United States. This is his story.
           </p>
-          <a href="https://www.amazon.com/Snow-Skis-Wheelchair-Quadriplegia-Failed/dp/108279838X">
+          <a href="https://www.amazon.com/Snow-Skiis-Wheelchair-Quadriplegia-Failed/dp/1090608683">
             <button>BUY AT AMAZON</button>
           </a>
         </div>
