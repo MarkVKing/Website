@@ -18,7 +18,7 @@
     "react-facebook": "^8.1.4",
     "react-helmet": "^5.2.1",
     "react-slick": "^0.25.2",
-    "sanitize-html": "^1.22.0",
+    "sanitize-html": "^2.3.2",
     "slick-carousel": "^1.8.1"
   },
   "keywords": [
