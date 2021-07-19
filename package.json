@@ -10,7 +10,7 @@
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-twitter": "^2.1.19",
-    "gatsby-source-wordpress": "^3.1.62",
+    "gatsby-source-wordpress": "^4.0.8",
     "html-react-parser": "^0.10.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
