@@ -12,7 +12,7 @@
     "gatsby-plugin-twitter": "^2.1.19",
     "gatsby-source-wordpress": "^3.1.62",
     "html-react-parser": "^0.10.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-facebook": "^8.1.4",
